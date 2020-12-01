@@ -5,5 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Simple-WeatherApp</title>
   </head>
-  <body></body>
+  <body>
+    <form action="/" method="POST">
+      <label for="name">Ente City: </label>
+      <input type="text" name="city" />
+      <button type="submit">VIEW CURRENT WEATHER</button>
+    </form>
+
+    <h1><%= item.desc %></h1>
+    <h1><%= item.mainWeather %></h1>
+    <h1><%= item.weatherDesc %></h1>
+    <h1><%= item.currentTemp %></h1>
+    <h1><%= item.humidity %></h1>
+    <h1><%= item.pressure %></h1>
+    <h1><%= item.wind %></h1>
+    <h1><%= item.time %></h1>
+  </body>
 </html>
