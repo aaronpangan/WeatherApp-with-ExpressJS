@@ -4,6 +4,7 @@ const fetch = require('node-fetch');
 const app = express();
 const bodyparser = require('body-parser');
 require('dotenv').config()
+const router = express.Router()
 
 // For getting the timezone based on latitude, longtitude
 const geoTz = require('geo-tz');
@@ -16,7 +17,7 @@ app.set('view engine', 'ejs');
 app.use(bodyparser.urlencoded({ extended: false }));
 
 // Getting the weather based on your location
-app.get('/', async (req, res) => {
+router.get('/', async (req, res) => {
   // For getting your timezone
   let convert = Intl.DateTimeFormat().resolvedOptions().timeZone + '';
 
@@ -46,7 +47,7 @@ app.get('/', async (req, res) => {
 });
 
 // To show the result of your searched city
-app.post('/', async (req, res) => {
+router.post('/', async (req, res) => {
   // Getting the api based on your searched city
   let data = await fetch(
     `https://api.openweathermap.org/data/2.5/weather?q=${req.body.city}&appid=b89b3cb176bf02ce436c0ec42e9973fe`
