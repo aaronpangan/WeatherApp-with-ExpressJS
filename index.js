@@ -3,8 +3,7 @@ const express = require('express');
 const fetch = require('node-fetch');
 const app = express();
 const bodyparser = require('body-parser');
-require('dotenv').config()
-
+require('dotenv').config();
 
 // For getting the timezone based on latitude, longtitude
 const geoTz = require('geo-tz');
@@ -30,7 +29,14 @@ app.get('/', async (req, res) => {
 
   data = await data.json();
 
-  res.send(data);
+  // Getting the your time
+  
+  const item = processData('This is your current weather', data);
+
+  console.log(data);
+
+  // Render the data to ejs file
+  res.render('index', { item });
 });
 
 // To show the result of your searched city

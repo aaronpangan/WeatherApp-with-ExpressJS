@@ -14,7 +14,6 @@ module.exports = (place, data, date) => {
     humidity: `${data.main.humidity}%`,
     pressure: `${data.main.pressure} hPa`,
     wind: `${data.wind.speed}m/s ${d2d(data.wind.deg)}`,
-    time: `${date}`,
   };
 
   return item;
