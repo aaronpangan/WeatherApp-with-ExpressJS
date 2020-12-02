@@ -29,8 +29,8 @@ app.get('/', async (req, res) => {
 
   data = await data.json();
 
-  // Getting the your time
-  
+ 
+  // Arranging the values to processData.js then assign to a variable
   const item = processData('This is your current weather', data);
 
   console.log(data);
