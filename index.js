@@ -28,7 +28,9 @@ app.get('/', async (req, res) => {
     `https://api.openweathermap.org/data/2.5/weather?q=${convert[1]}&appid=b89b3cb176bf02ce436c0ec42e9973fe`
   );
 
-  res.send(data)
+  data = await data.json();
+
+  res.send(data);
 });
 
 // To show the result of your searched city
