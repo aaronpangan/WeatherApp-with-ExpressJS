@@ -31,7 +31,7 @@ app.get('/', async (req, res) => {
   data = await data.json();
 
   // Getting the your time
-  let timezone = geoTz(data.coord.lat, data.coord.lon);
+  let timezone = await geoTz(data.coord.lat, data.coord.lon);
   let date =
     new Date().toLocaleString('en-US', {
       timeZone: timezone,
@@ -59,7 +59,7 @@ app.post('/', async (req, res) => {
   if (data.cod != 200) return res.status(404).send('Invalid City, Try Again');
 
   // Getting the timezone of that city
-  let timezone = geoTz(data.coord.lat, data.coord.lon);
+  let timezone = await geoTz(data.coord.lat, data.coord.lon);
 
   // Getting the timezone of that city
   let date =
