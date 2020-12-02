@@ -28,22 +28,7 @@ app.get('/', async (req, res) => {
     `https://api.openweathermap.org/data/2.5/weather?q=${convert[1]}&appid=b89b3cb176bf02ce436c0ec42e9973fe`
   );
 
-  data = await data.json();
-
-  // Getting the your time
-  let timezone = await geoTz(data.coord.lat, data.coord.lon);
-  let date =
-    new Date().toLocaleString('en-US', {
-      timeZone: timezone,
-    }) + '';
-
-  // Arranging the values to processData.js then assign to a variable
-  const item = processData('This is your current weather', data, date);
-
-  console.log(data);
-
-  // Render the data to ejs file
-  res.render('index', { item });
+  res.send(data)
 });
 
 // To show the result of your searched city
