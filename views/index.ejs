@@ -3,22 +3,93 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Simple-WeatherApp</title>
+    <title>Simple-WeatherApp using NodeJS and OpenWeatherMap Api</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+      }
+
+      .header{
+        margin-top: 50px;
+        text-align: center;
+      }
+
+
+      .container {
+        margin: 100px auto;
+        width: 410px;
+      }
+
+      .form-wrap {
+        background: coral;
+        width: 100%;
+        padding: 15px 25px;
+      }
+
+      .form-wrap h2,
+      .form-wrap p {
+        text-align: left;
+        margin: 15px;
+      }
+
+      .form-wrap span {
+        color: white;
+      }
+
+      .form-wrap button {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        margin-top: 20px;
+        border-radius: 20px;
+      }
+
+      .form-wrap .form-group {
+        margin-top: 10px;
+      }
+
+      .form-wrap .form-group input {
+        padding: 10px;
+        border-radius: 10px;
+      }
+
+      .form-wrap button:hover {
+        background: chartreuse;
+      }
+    </style>
   </head>
   <body>
-    <form action="/" method="POST">
-      <label for="name">Ente City: </label>
-      <input type="text" name="city" />
-      <button type="submit">VIEW CURRENT WEATHER</button>
-    </form>
+    <h2 class="header">
+      Simple-WeatherApp using NodeJS and OpenWeatherMap Api
+    </h2>
 
-    <h1><%= item.desc %></h1>
-    <h1><%= item.mainWeather %></h1>
-    <h1><%= item.weatherDesc %></h1>
-    <h1><%= item.currentTemp %></h1>
-    <h1><%= item.humidity %></h1>
-    <h1><%= item.pressure %></h1>
-    <h1><%= item.wind %></h1>
-    <h1><%= item.time %></h1>
+    <div class="container">
+      <div class="form-wrap">
+        <h2><%= item.desc %></h2>
+        <p>Country: <span><%= item.country %></span></p>
+        <p>Weather: <span><%= item.mainWeather %></span></p>
+        <p>Weather Description: <span><%= item.weatherDesc %></span></p>
+        <p>Current Temperature: <span><%= item.currentTemp %>&#8451;</span></p>
+        <p>Maximum Temperature: <span><%= item.minTemp %>&#8451;</span></p>
+        <p>Minimum Temperature: <span><%= item.maxTemp %>&#8451;</span></p>
+        <p>Humidity: <span><%= item.humidity %></span></p>
+        <p>Pressure: <span><%= item.pressure %></span></p>
+        <p>Wind: <span><%= item.wind %></span></p>
+        <p>Date and Time: <span><%= item.time %></span></p>
+        <hr />
+        <form action="/" method="POST">
+          <div class="form-group">
+            <label for="name">Enter City: </label>
+            <input type="text" name="city" />
+          </div>
+
+          <button type="submit">VIEW CURRENT WEATHER</button>
+        </form>
+      </div>
+    </div>
   </body>
 </html>
