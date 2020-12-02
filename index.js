@@ -3,6 +3,7 @@ const express = require('express');
 const fetch = require('node-fetch');
 const app = express();
 const bodyparser = require('body-parser');
+require('dotenv').config()
 
 // For getting the timezone based on latitude, longtitude
 const geoTz = require('geo-tz');
