@@ -30,14 +30,14 @@ app.get('/', async (req, res) => {
   data = await data.json();
 
   // Getting the your time
-  let timezone = await geoTz(data.coord.lat, data.coord.lon);
-  let date =
-    new Date().toLocaleString('en-US', {
-      timeZone: timezone,
-    }) + '';
+  // let timezone = await geoTz(data.coord.lat, data.coord.lon);
+  // let date =
+  //   new Date().toLocaleString('en-US', {
+  //     timeZone: timezone,
+  //   }) + '';
 
   // Arranging the values to processData.js then assign to a variable
-  const item = processData('This is your current weather', data, date);
+  const item = processData('This is your current weather', data);
 
   console.log(data);
 
@@ -58,16 +58,10 @@ app.post('/', async (req, res) => {
   if (data.cod != 200) return res.status(404).send('Invalid City, Try Again');
 
   // Getting the timezone of that city
-  let timezone = await geoTz(data.coord.lat, data.coord.lon);
-
-  // Getting the timezone of that city
-  let date =
-    new Date().toLocaleString('en-US', {
-      timeZone: timezone,
-    }) + '';
+ 
 
   // Arranging the values to processData.js then assign to a variable
-  const item = processData(`You searched for ${req.body.city}`, data, date);
+  const item = processData(`You searched for ${req.body.city}`, data);
 
   // Render index.ejs with the result
   res.render('index', { item });
