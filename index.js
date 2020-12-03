@@ -71,7 +71,7 @@ app.post('/', async (req, res) => {
     }) + '';
 
   // Arranging the values to processData.js then assign to a variable
-  const item = processData(`You searched for ${req.body.city}`, data, date);
+  const item = processData(`You searched for: ${req.body.city}`, data, date);
 
   // Render index.ejs with the result
   res.render('index', { item });
