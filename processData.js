@@ -5,6 +5,7 @@ module.exports = (place, data, date) => {
 
   const item = {
     desc: place,
+    country: data.sys.country,
     mainWeather: `${data.weather[0].main}`,
     weatherDesc: `${data.weather[0].description}`,
     currentTemp: `${(data.main.temp - 272.15).toFixed(2)}`,
@@ -13,6 +14,7 @@ module.exports = (place, data, date) => {
     humidity: `${data.main.humidity}%`,
     pressure: `${data.main.pressure} hPa`,
     wind: `${data.wind.speed}m/s ${d2d(data.wind.deg)}`,
+    time: `${date}`,
   };
 
   return item;

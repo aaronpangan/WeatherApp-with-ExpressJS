@@ -13,11 +13,10 @@
         font-family: Verdana, Geneva, Tahoma, sans-serif;
       }
 
-      .header{
+      .header {
         margin-top: 50px;
         text-align: center;
       }
-
 
       .container {
         margin: 100px auto;
@@ -70,6 +69,7 @@
     <div class="container">
       <div class="form-wrap">
         <h2><%= item.desc %></h2>
+        <p>Country: <span><%= item.country %></span></p>
         <p>Weather: <span><%= item.mainWeather %></span></p>
         <p>Weather Description: <span><%= item.weatherDesc %></span></p>
         <p>Current Temperature: <span><%= item.currentTemp %>&#8451;</span></p>
@@ -78,6 +78,7 @@
         <p>Humidity: <span><%= item.humidity %></span></p>
         <p>Pressure: <span><%= item.pressure %></span></p>
         <p>Wind: <span><%= item.wind %></span></p>
+        <p>Date and Time: <span><%= item.time %></span></p>
         <hr />
         <form action="/" method="POST">
           <div class="form-group">
