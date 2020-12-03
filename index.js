@@ -42,7 +42,6 @@ app.get('/', async (req, res) => {
   const item = processData('This is your current weather', data, date);
 
   console.log(data);
-  console.log(geoLoc);
 
   // Render the data to ejs file
   res.render('index', { item });
