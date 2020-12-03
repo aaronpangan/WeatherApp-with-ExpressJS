@@ -20,13 +20,13 @@ app.use(bodyparser.urlencoded({ extended: false }));
 app.get('/', async (req, res) => {
   // For getting your timezone based on your ip address
 
-  const myIp = await publicIp.v4();
-  let geoLoc = await fetch(`http://ip-api.com/json/${myIp}`);
-  geoLoc = await geoLoc.json();
+  // const myIp = await publicIp.v4();
+  // let geoLoc = await fetch(`http://ip-api.com/json/${myIp}`);
+  // geoLoc = await geoLoc.json();
 
   // Fetching current weather in your location
   let data = await fetch(
-    `https://api.openweathermap.org/data/2.5/weather?q=${geoLoc.city}&appid=b89b3cb176bf02ce436c0ec42e9973fe`
+    `https://api.openweathermap.org/data/2.5/weather?q=${'Manila'}&appid=b89b3cb176bf02ce436c0ec42e9973fe`
   );
 
   data = await data.json();
