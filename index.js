@@ -58,13 +58,9 @@ app.post('/', async (req, res) => {
   if (data.cod != 200) return res.status(404).send('Invalid City, Try Again');
 
   // Getting the timezone of that city
- 
 
   // Arranging the values to processData.js then assign to a variable
-  const item = processData(`You searched for ${req.body.city}`, data);
-
-  // Render index.ejs with the result
-  res.render('index', { item });
+  res.send(data);
 });
 
 // Arranging the server
