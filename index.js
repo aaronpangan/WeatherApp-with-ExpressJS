@@ -4,7 +4,7 @@ const fetch = require('node-fetch');
 const app = express();
 const bodyparser = require('body-parser');
 require('dotenv').config();
-const publicIp = require('public-ip');
+//const publicIp = require('public-ip');
 
 // For getting the timezone based on latitude, longtitude
 const geoTz = require('geo-tz');
@@ -57,7 +57,9 @@ app.post('/', async (req, res) => {
   data = await data.json();
 
   // If the input is invalid
-  if (data.cod != 200) return res.status(404).send('Invalid City, Try Again');
+  if (data.cod != 200) {
+    return res.redirect('/');
+  }
 
   // Getting the timezone of that city
   let timezone = await geoTz(data.coord.lat, data.coord.lon);
