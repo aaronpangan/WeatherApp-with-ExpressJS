@@ -39,7 +39,7 @@ app.get('/', async (req, res) => {
     }) + '';
 
   // Arranging the values to processData.js then assign to a variable
-  const item = processData('This is your current weather', data, date);
+  const item = processData('Manila Current Weather: ', data, date);
 
   console.log(data);
 
